@@ -19,23 +19,23 @@ css_styles()
 # ---------------------------------------------------------------------------
 # SIDEBAR - quick info
 # ---------------------------------------------------------------------------
-with st.sidebar:
-    st.subheader("About")
-    st.write(
-        "This Unit Converter supports 9 categories with 60+ units total."
-    )
-    st.divider()
-    st.subheader("Categories")
-    with st.container(key="sidebar_menu"):
-      st.markdown('<div class="sidebar-links">', unsafe_allow_html=True)
-      selected_category = st.radio(
-          "Choose Category",
-          ALL_CATEGORIES
-      )
-      st.markdown('</div>', unsafe_allow_html=True)
-    st.divider()
-    st.caption("Built with Python + Streamlit")
-    st.caption("Created by GEO GEORGE")
+# with st.sidebar:
+#     st.subheader("About")
+#     st.write(
+#         "This Unit Converter supports 9 categories with 60+ units total."
+#     )
+#     st.divider()
+#     st.subheader("Categories")
+#     with st.container(key="sidebar_menu"):
+#       st.markdown('<div class="sidebar-links">', unsafe_allow_html=True)
+#       selected_category = st.radio(
+#           "Choose Category",
+#           ALL_CATEGORIES
+#       )
+#       st.markdown('</div>', unsafe_allow_html=True)
+#     st.divider()
+#     st.caption("Built with Python + Streamlit")
+#     st.caption("Created by GEO GEORGE")
 
 
 # MAIN PAGE
@@ -43,15 +43,18 @@ st.markdown(
     "<h1 class='main-title'>Unit Converter</h1>",
     unsafe_allow_html=True
 )
-# Dynamic subtitle
-st.subheader(f"{selected_category}")
-
-units = get_units_for_category(selected_category)
-
-
-
 
 with st.container(border=True,key="form-container"):
+
+  category_col, = st.columns(1)
+  with category_col:
+      st.markdown("<strong>Category</strong>", unsafe_allow_html=True)
+      selected_category = st.selectbox(
+          "From unit:", ALL_CATEGORIES, key="category", label_visibility="collapsed"
+      )
+
+  units = get_units_for_category(selected_category)
+
   col1, col2 = st.columns(2)
   with col1:
       st.markdown("<strong>From</strong>", unsafe_allow_html=True)
@@ -79,7 +82,7 @@ with st.container(border=True,key="form-container"):
           "", value=1.0, format="%.6f", key="value",label_visibility="collapsed"
       )
 
-  result = convert(value, from_unit, to_unit, selected_category)    
+  result = convert(value, from_unit, to_unit, selected_category)   
 
   if result is not None:
       st.markdown(
