@@ -14,30 +14,6 @@ st.set_page_config(
 
 css_styles()
 
-# sidebar
-
-# ---------------------------------------------------------------------------
-# SIDEBAR - quick info
-# ---------------------------------------------------------------------------
-# with st.sidebar:
-#     st.subheader("About")
-#     st.write(
-#         "This Unit Converter supports 9 categories with 60+ units total."
-#     )
-#     st.divider()
-#     st.subheader("Categories")
-#     with st.container(key="sidebar_menu"):
-#       st.markdown('<div class="sidebar-links">', unsafe_allow_html=True)
-#       selected_category = st.radio(
-#           "Choose Category",
-#           ALL_CATEGORIES
-#       )
-#       st.markdown('</div>', unsafe_allow_html=True)
-#     st.divider()
-#     st.caption("Built with Python + Streamlit")
-#     st.caption("Created by GEO GEORGE")
-
-
 # MAIN PAGE
 st.markdown(
     "<h1 class='main-title'>Unit Converter</h1>",
