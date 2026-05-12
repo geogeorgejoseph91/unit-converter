@@ -1,6 +1,6 @@
 import streamlit as st
 
-brand_color = '#1b5a9d'
+brand_color = '#000000'
 
 def css_styles():
     st.markdown(
