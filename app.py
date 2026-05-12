@@ -34,7 +34,7 @@ with st.sidebar:
       )
       st.markdown('</div>', unsafe_allow_html=True)
     st.divider()
-    st.caption("Built with Python + Streamlit")
+    st.caption("Built with Python + Streamlit by GEO GEORGE")
 
 
 # MAIN PAGE
