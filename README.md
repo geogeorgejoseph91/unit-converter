@@ -6,17 +6,17 @@ A multi-category unit converter built with **Python** and **Streamlit**.
 
 This project converts values between units across **9 categories**:
 
-| Category | Units Supported |
-|---|---|
-| 📏 Length | meter, km, cm, mm, mile, yard, foot, inch, nautical mile |
-| ⚖️ Weight | kg, g, mg, ton, pound, ounce, stone |
-| 🌡️ Temperature | Celsius, Fahrenheit, Kelvin |
-| 🧪 Volume | liter, mL, m³, gallon, quart, pint, cup, fl oz |
-| ⏱️ Time | second, ms, minute, hour, day, week, month, year |
-| 🚀 Speed | m/s, km/h, mph, knot, ft/s |
-| 🟦 Area | m², km², cm², hectare, acre, ft², in², mi² |
-| ⚡ Energy | joule, kJ, calorie, kcal, Wh, kWh, BTU |
-| 💾 Data | byte, KB, MB, GB, TB, bit, KiB, MiB, GiB |
+| Category       | Units Supported                                          |
+| -------------- | -------------------------------------------------------- |
+| 📏 Length      | meter, km, cm, mm, mile, yard, foot, inch, nautical mile |
+| ⚖️ Weight      | kg, g, mg, ton, pound, ounce, stone                      |
+| 🌡️ Temperature | Celsius, Fahrenheit, Kelvin                              |
+| 🧪 Volume      | liter, mL, m³, gallon, quart, pint, cup, fl oz           |
+| ⏱️ Time        | second, ms, minute, hour, day, week, month, year         |
+| 🚀 Speed       | m/s, km/h, mph, knot, ft/s                               |
+| 🟦 Area        | m², km², cm², hectare, acre, ft², in², mi²               |
+| ⚡ Energy      | joule, kJ, calorie, kcal, Wh, kWh, BTU                   |
+| 💾 Data        | byte, KB, MB, GB, TB, bit, KiB, MiB, GiB                 |
 
 ## 📁 Project Structure
 
@@ -31,11 +31,13 @@ unit_converter/
 ## 🚀 How to Run
 
 1. **Install dependencies:**
+
    ```bash
    pip install -r requirements.txt
    ```
 
 2. **Run the app:**
+
    ```bash
    streamlit run app.py
    ```
@@ -45,6 +47,7 @@ unit_converter/
 ## 🧠 How It Works
 
 ### Linear Conversions (Length, Weight, Volume, etc.)
+
 Each unit is stored with a factor representing how many **base units** it equals.
 
 ```
@@ -53,10 +56,12 @@ Step 2:  base_value ÷ target_factor  = final result
 ```
 
 **Example — Convert 5 km to miles:**
+
 - Step 1: `5 × 1000 = 5000` meters (base unit)
 - Step 2: `5000 ÷ 1609.344 ≈ 3.107` miles
 
 ### Temperature Conversions (Special Case)
+
 Temperature can't use a simple multiplier because the zero points differ
 (0°C ≠ 0°F ≠ 0K). Instead, we always go through **Celsius** as a bridge:
 
@@ -81,3 +86,7 @@ K  → °C :  C = K − 273.15
 ## 👤 Author
 
 Built as a course project.
+
+## demo
+
+https://unit-converter-by-geo.streamlit.app/

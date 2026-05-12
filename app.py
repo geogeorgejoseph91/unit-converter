@@ -35,7 +35,7 @@ with st.sidebar:
       st.markdown('</div>', unsafe_allow_html=True)
     st.divider()
     st.caption("Built with Python + Streamlit")
-    st.caption("Authored by GEO GEORGE")
+    st.caption("Created by GEO GEORGE")
 
 
 # MAIN PAGE
