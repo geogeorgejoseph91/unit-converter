@@ -9,7 +9,7 @@ def css_styles():
         body .main-title {{
             text-align: left;
             color: {brand_color};
-            font-size: 60px;
+            font-size: 48px;
             font-weight: 500;
             border-bottom: 1px solid #dbdbdb;
             margin-bottom: 50px;

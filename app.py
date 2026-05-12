@@ -49,38 +49,39 @@ st.subheader(f"{selected_category}")
 units = get_units_for_category(selected_category)
 
 
-col1, col2 = st.columns(2)
 
-with col1:
-    st.markdown("<strong>From</strong>", unsafe_allow_html=True)
-    from_unit = st.selectbox(
-        "From unit:", units, key="from_unit", label_visibility="collapsed"
-    )
 
-with col2:
-    st.markdown("<strong>To</strong>", unsafe_allow_html=True)
-    # Default the "to" dropdown to the second unit (so it differs from "from")
-    default_to_index = 1 if len(units) > 1 else 0
-    to_unit = st.selectbox(
-        "To unit:",
-        units,
-        index=default_to_index,
-        key="to_unit",
-        label_visibility="collapsed",
-    )
+with st.container(border=True,key="form-container"):
+  col1, col2 = st.columns(2)
+  with col1:
+      st.markdown("<strong>From</strong>", unsafe_allow_html=True)
+      from_unit = st.selectbox(
+          "From unit:", units, key="from_unit", label_visibility="collapsed"
+      )
 
-col3, = st.columns(1)
+  with col2:
+      st.markdown("<strong>To</strong>", unsafe_allow_html=True)
+      # Default the "to" dropdown to the second unit (so it differs from "from")
+      default_to_index = 1 if len(units) > 1 else 0
+      to_unit = st.selectbox(
+          "To unit:",
+          units,
+          index=default_to_index,
+          key="to_unit",
+          label_visibility="collapsed",
+      )
 
-with col3:
-    st.markdown("<strong>Enter value:</strong>", unsafe_allow_html=True)
-    value = st.number_input(
-        "", value=1.0, format="%.6f", key="value",label_visibility="collapsed"
-    )
+  col3, = st.columns(1)
 
-result = convert(value, from_unit, to_unit, selected_category)    
+  with col3:
+      st.markdown("<strong>Enter value</strong>", unsafe_allow_html=True)
+      value = st.number_input(
+          "", value=1.0, format="%.6f", key="value",label_visibility="collapsed"
+      )
 
-if result is not None:
-    st.divider()
-    st.markdown(
-        f"### {value:g} {from_unit}  =  **{result:g} {to_unit}**"
-    )  
+  result = convert(value, from_unit, to_unit, selected_category)    
+
+  if result is not None:
+      st.markdown(
+          f"**{value:g} {from_unit}  =  {result:g} {to_unit}**"
+      )  
