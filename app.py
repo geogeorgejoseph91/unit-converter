@@ -26,10 +26,13 @@ with st.sidebar:
     )
     st.divider()
     st.subheader("Categories")
-    selected_category = st.radio(
-        "Choose Category",
-        ALL_CATEGORIES
-    )
+    with st.container(key="sidebar_menu"):
+      st.markdown('<div class="sidebar-links">', unsafe_allow_html=True)
+      selected_category = st.radio(
+          "Choose Category",
+          ALL_CATEGORIES
+      )
+      st.markdown('</div>', unsafe_allow_html=True)
     st.divider()
     st.caption("Built with Python + Streamlit")
 
