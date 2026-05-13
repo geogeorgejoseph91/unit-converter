@@ -1,5 +1,5 @@
 import streamlit as st
-from conversions import ALL_CATEGORIES, convert, get_units_for_category
+from conversions import ALL_CATEGORIES, convert, get_units_for_category, get_conversion_equation
 import pandas as pd
 import numpy as np
 
@@ -26,7 +26,7 @@ with st.container(border=True,key="form-container"):
   with category_col:
       st.markdown("<strong>Category</strong>", unsafe_allow_html=True)
       selected_category = st.selectbox(
-          "From unit:", ALL_CATEGORIES, key="category", label_visibility="collapsed"
+          "Category", ALL_CATEGORIES, key="category", label_visibility="collapsed"
       )
 
   units = get_units_for_category(selected_category)
@@ -55,7 +55,7 @@ with st.container(border=True,key="form-container"):
   with col3:
       st.markdown("<strong>Enter value</strong>", unsafe_allow_html=True)
       value = st.number_input(
-          "", value=1.0, format="%.6f", key="value",label_visibility="collapsed"
+          "Value", value=1.0, format="%.6f", key="value",label_visibility="collapsed"
       )
 
   result = convert(value, from_unit, to_unit, selected_category)   
@@ -64,3 +64,11 @@ with st.container(border=True,key="form-container"):
       st.markdown(
           f"**{value:g} {from_unit}  =  {result:g} {to_unit}**"
       )  
+      
+
+  equation = get_conversion_equation(from_unit, to_unit, selected_category)
+
+  if equation is not None:
+    st.info(
+        f"Equation Used: {equation}"
+    )  
